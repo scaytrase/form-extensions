@@ -1,0 +1,27 @@
+services:
+  form_type.datetime_local:
+   class: ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type\DateTimeLocalType
+   tags:
+   - { name: form.type, alias: datetime_local }
+  form_type.key_value_collection:
+   class: ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type\KeyValueCollectionType
+   tags:
+   - { name: form.type, alias: key_value_collection }
+  form_type.key_value_entry:
+   class: ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type\KeyValueType
+   tags:
+   - { name: form.type, alias: key_value_entry }
+  form_type.choice_group:
+   class: ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type\ChoiceGroupType
+   tags:
+   - { name: form.type, alias: choice_group }
+  form_type.entity_hidden:
+   class: ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type\EntityHiddenType
+   arguments: ["@doctrine.orm.entity_manager"]
+   tags:
+   - { name: form.type, alias: entity_hidden }
+  form_type.entity_autocomplete:
+   class: ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type\EntityAutocompleteType
+   arguments: ["@doctrine.orm.entity_manager"]
+   tags:
+   - { name: form.type, alias: entity_autocomplete }

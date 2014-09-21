@@ -1,0 +1,8 @@
+/.idea
+
+*.phar
+composer.lock
+
+vendor/
+build/
+target/
