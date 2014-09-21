@@ -39,7 +39,7 @@ class ExtraFormFieldsExtension extends Extension implements PrependExtensionInte
                 case 'twig':
                     $container->prependExtensionConfig(
                         $name,
-                        array('form' => array('resources' => 'ExtraFormFieldsBundle:Form:fields.html.twig'))
+                        array('form' => array('resources' => array('ExtraFormFieldsBundle:Form:fields.html.twig')))
                     );
                     break;
             }
