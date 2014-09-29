@@ -66,15 +66,15 @@
 $(document).ready(function () {
     $('[data-autocomplete]').each(function () {
         $(this).entity_autocomplete();
-        $('[data-prototype]').closest('form').on('DOMNodeInserted', function () {
-            $(this).closest('form').find('[data-autocomplete]').each(function () {
-                $(this).entity_autocomplete();
-            });
+    });
+    $('[data-prototype]').closest('form').on('DOMNodeInserted', function () {
+        $(this).closest('form').find('[data-autocomplete]').each(function () {
+            $(this).entity_autocomplete();
         });
-        $('form').on('DOMNodeInserted', function () {
-            $(this).closest('form').find('[data-autocomplete]').each(function () {
-                $(this).entity_autocomplete();
-            });
+    });
+    $('form').on('DOMNodeInserted', function () {
+        $(this).closest('form').find('[data-autocomplete]').each(function () {
+            $(this).entity_autocomplete();
         });
     });
 });
