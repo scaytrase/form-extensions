@@ -89,11 +89,7 @@ class DataToKeyValueArrayTransformer implements DataTransformerInterface
 
         $result = array();
         foreach ($value as $row) {
-            if (is_numeric($row['key'])) {
-                $result['key' . $row['key']] = $row['value'];
-            } else {
-                $result[$row['key']] = $row['value'];
-            }
+            $result[$row['key']] = $row['value'];
         }
 
         return $result;
