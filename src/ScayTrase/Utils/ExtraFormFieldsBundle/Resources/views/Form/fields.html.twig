@@ -22,9 +22,8 @@
                 <input type=text class="form-control" title="" value="{{ form.vars.value['label'] }}"
                        {% if required %}required="required"{% endif %}
                         {% if form.vars.disabled %}disabled{% endif %}
-                       data-autocomplete="true"
+                       data-autocomplete="{{ form.vars.action }}"
                        data-autocomplete-storage="#{{ form.vars.id }}"
-                       data-autocomplete-source="{{ form.vars.action }}"
                         {% if form.vars.attr.autocomplete_group is defined %}
                             data-autocomplete-group="{{ form.vars.attr.autocomplete_group }}"
                         {% endif %}

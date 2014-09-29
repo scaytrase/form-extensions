@@ -6,7 +6,7 @@
     $.fn.entity_autocomplete = function () {
         var $this = $(this);
         var $storage = $($this.data('autocomplete-storage'));
-        var data_source = $this.data('autocomplete-source');
+        var data_source = $this.data('autocomplete');
 
         var data_source_label_field = $this.data('autocomplete-label') ? $this.data('autocomplete-label') : 'label';
         var data_source_id_field = $this.data('autocomplete-id') ? $this.data('autocomplete-id') : 'id';
@@ -66,7 +66,12 @@
 $(document).ready(function () {
     $('[data-autocomplete]').each(function () {
         $(this).entity_autocomplete();
-        $(this).closest('form').on('DOMNodeInserted', function () {
+        $('[data-prototype]').closest('form').on('DOMNodeInserted', function () {
+            $(this).closest('form').find('[data-autocomplete]').each(function () {
+                $(this).entity_autocomplete();
+            });
+        });
+        $('form').on('DOMNodeInserted', function () {
             $(this).closest('form').find('[data-autocomplete]').each(function () {
                 $(this).entity_autocomplete();
             });
