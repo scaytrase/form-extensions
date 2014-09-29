@@ -22,6 +22,7 @@
                 <input type=text class="form-control" title="" value="{{ form.vars.value['label'] }}"
                        {% if required %}required="required"{% endif %}
                         {% if form.vars.disabled %}disabled{% endif %}
+                         {% for attrname, attrvalue in attr %}{{ attrname }}="{{ attrvalue }}"{% endfor %}
                        data-autocomplete="{{ form.vars.action }}"
                        data-autocomplete-storage="#{{ form.vars.id }}"
                         {% if form.vars.attr.autocomplete_group is defined %}
@@ -153,7 +154,7 @@
 
 {% block datetime_local_widget %}
     <input {% if required %}required="required"{% endif %}  {% if form.vars.disabled %}disabled{% endif %}
-           class="form-control"
+           class="form-control" {% for attrname, attrvalue in attr %}{{ attrname }}="{{ attrvalue }}"{% endfor %}
            id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" type="datetime-local"
            value="{{ form.vars.value }}">
 {% endblock %}
