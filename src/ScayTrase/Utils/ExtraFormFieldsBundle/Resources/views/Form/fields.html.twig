@@ -38,8 +38,8 @@
                             data-autocomplete-id="{{ form.vars.attr.autocomplete_id }}"
                         {% endif %}
                         />
-                {% if help is defined %}
-                    <small class="help-block">{{ help | raw }}</small>
+                {% if form.vars.attr.help_text is defined %}
+                    <small class="help-block">{{ form.vars.attr.help_text | raw }}</small>
                 {% endif %}
             {% endspaceless %}
         {% endblock %}
