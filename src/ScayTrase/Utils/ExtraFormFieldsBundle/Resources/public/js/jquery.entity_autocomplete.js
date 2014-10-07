@@ -34,7 +34,11 @@
                 if (ui.item) {
                     $this.val(ui.item[data_source_label_field]);
                     $storage.val(ui.item[data_source_id_field]);
+                } else {
+                    $this.val(null);
+                    $storage.val(null);
                 }
+
             },
             select: function (event, ui) {
                 $storage.val(ui.item[data_source_id_field]);
