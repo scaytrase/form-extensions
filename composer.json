@@ -1,16 +1,17 @@
 {
-    "name": "scaytrase/form-extensions",
+    "name": "scaytrase/symfony-form-extensions",
     "description": "Additional form fields for Symfony 2 Forms",
     "minimum-stability": "stable",
-    "license": "GPLv2",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "Pavel Batanov",
             "email": "pavel@batanov.me"
         }
     ],
-    "require-dev":{
-        "symfony/symfony":"~2.4"
+    "require-dev": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "~2.4"
     },
     "autoload": {
         "psr-0": {

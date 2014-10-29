@@ -6,7 +6,7 @@
  * Time: 16:37
  */
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type;
+namespace ScayTrase\Forms\ExtensionsBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;

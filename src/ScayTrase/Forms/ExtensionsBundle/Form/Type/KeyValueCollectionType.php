@@ -6,10 +6,10 @@
  * Time: 15:09
  */
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type;
+namespace ScayTrase\Forms\ExtensionsBundle\Form\Type;
 
 
-use ScayTrase\Utils\ExtraFormFieldsBundle\Form\DataTransformer\DataToKeyValueArrayTransformer;
+use ScayTrase\Forms\ExtensionsBundle\Form\DataTransformer\DataToKeyValueArrayTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

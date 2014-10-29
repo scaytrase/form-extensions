@@ -6,14 +6,13 @@
  * Time: 18:05
  */
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle\Form\DataTransformer;
+namespace ScayTrase\Forms\ExtensionsBundle\Form\DataTransformer;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
 
-class EntityToArrayViewTransformer implements DataTransformerInterface
+class EntityToIdTransformer implements DataTransformerInterface
 {
     /**
      * @var ObjectManager
@@ -25,29 +24,19 @@ class EntityToArrayViewTransformer implements DataTransformerInterface
      */
     protected $class;
 
-    /**
-     * @var string
-     */
-    protected $path;
-
-    public function __construct(ObjectManager $objectManager, $class, $path)
+    public function __construct(ObjectManager $objectManager, $class)
     {
         $this->objectManager = $objectManager;
         $this->class = $class;
-        $this->path = $path;
     }
 
     public function transform($entity)
     {
-
         if (null === $entity) {
-            return array('id' => '', 'label' => '');
+            return null;
         }
 
-        $accessor = new PropertyAccessor();
-
-
-        return array('id' => $entity->getId(), 'label' => $accessor->getValue($entity, $this->path));
+        return $entity->getId();
     }
 
     public function reverseTransform($id)

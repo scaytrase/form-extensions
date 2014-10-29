@@ -6,7 +6,7 @@
  * Time: 15:07
  */
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle\Form\DataTransformer;
+namespace ScayTrase\Forms\ExtensionsBundle\Form\DataTransformer;
 
 
 use Symfony\Component\Form\DataTransformerInterface;

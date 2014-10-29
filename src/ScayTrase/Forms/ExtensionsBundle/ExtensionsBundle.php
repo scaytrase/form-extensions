@@ -6,12 +6,12 @@
  * Time: 22:59
  */
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle;
+namespace ScayTrase\Forms\ExtensionsBundle;
 
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ExtraFormFieldsBundle extends Bundle
+class ExtensionsBundle extends Bundle
 {
 
-} 
+}

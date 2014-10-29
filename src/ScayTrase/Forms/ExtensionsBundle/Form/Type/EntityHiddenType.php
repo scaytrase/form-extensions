@@ -2,20 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: Pavel Batanov <pavel@batanov.me>
- * Date: 05.06.2014
- * Time: 17:03
+ * Date: 30.05.2014
+ * Time: 18:06
  */
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle\Form\Type;
+namespace ScayTrase\Forms\ExtensionsBundle\Form\Type;
 
 
 use Doctrine\Common\Persistence\ObjectManager;
-use ScayTrase\Utils\ExtraFormFieldsBundle\Form\DataTransformer\EntityToArrayViewTransformer;
+use ScayTrase\Forms\ExtensionsBundle\Form\DataTransformer\EntityToIdTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EntityAutocompleteType extends AbstractType
+class EntityHiddenType extends AbstractType
 {
     /**
      * @var ObjectManager
@@ -27,25 +27,16 @@ class EntityAutocompleteType extends AbstractType
         $this->objectManager = $objectManager;
     }
 
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        $transformer = new EntityToArrayViewTransformer(
-            $this->objectManager,
-            $options['class'],
-            $options['visible_property_path']
-        );
-        $builder->addViewTransformer($transformer);
+        $transformer = new EntityToIdTransformer($this->objectManager, $options['class']);
+        $builder->addModelTransformer($transformer);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver
-            ->setRequired(array('class', 'action', 'visible_property_path'))
+            ->setRequired(array('class'))
             ->setDefaults(
                 array(
                     'invalid_message' => 'The entity does not exist.',
@@ -60,6 +51,6 @@ class EntityAutocompleteType extends AbstractType
 
     public function getName()
     {
-        return 'entity_autocomplete';
+        return 'entity_hidden';
     }
 }

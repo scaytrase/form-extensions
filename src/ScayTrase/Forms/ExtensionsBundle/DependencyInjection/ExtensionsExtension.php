@@ -1,6 +1,6 @@
 <?php
 
-namespace ScayTrase\Utils\ExtraFormFieldsBundle\DependencyInjection;
+namespace ScayTrase\Forms\ExtensionsBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class ExtraFormFieldsExtension extends Extension implements PrependExtensionInterface
+class ExtensionsExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritDoc}
@@ -39,7 +39,7 @@ class ExtraFormFieldsExtension extends Extension implements PrependExtensionInte
                 case 'twig':
                     $container->prependExtensionConfig(
                         $name,
-                        array('form' => array('resources' => array('ExtraFormFieldsBundle:Form:fields.html.twig')))
+                        array('form' => array('resources' => array('ExtensionsBundle:Form:fields.html.twig')))
                     );
                     break;
             }
