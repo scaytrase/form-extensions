@@ -20,6 +20,7 @@
                        id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" type="hidden"
                        value="{{ form.vars.value['id'] }}">
                 <input type=text class="form-control" title="" value="{{ form.vars.value['label'] }}"
+                       id="{{ form.vars.id }}_helper" name="{{ form.vars.id }}_helper"
                        {% if required %}required="required"{% endif %}
                        {% if form.vars.disabled %}disabled{% endif %}
                          {% for attrname, attrvalue in attr %}{{ attrname }}="{{ attrvalue }}"{% endfor %}
