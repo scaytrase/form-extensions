@@ -39,7 +39,14 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
                 case 'twig':
                     $container->prependExtensionConfig(
                         $name,
-                        array('form' => array('resources' => array('ExtensionsBundle:Form:fields.html.twig')))
+                        array(
+                            'form' => array(
+                                'resources' => array(
+                                    'ExtensionsBundle:Form:datetime_local.html.twig',
+                                    'ExtensionsBundle:Form:entity_autocomplete.html.twig',
+                                )
+                            )
+                        )
                     );
                     break;
             }

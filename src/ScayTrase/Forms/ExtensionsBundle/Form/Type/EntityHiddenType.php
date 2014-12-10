@@ -30,7 +30,7 @@ class EntityHiddenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $transformer = new EntityToIdTransformer($this->objectManager, $options['class']);
-        $builder->addModelTransformer($transformer);
+        $builder->addViewTransformer($transformer);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
