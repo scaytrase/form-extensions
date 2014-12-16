@@ -66,6 +66,10 @@ class EntityToArrayTransformer implements DataTransformerInterface
             return null;
         }
 
+        if ($array['storage'] === null) {
+            return null;
+        }
+
         $class = $this->class;
 
         if (!($array['storage'] instanceof $class)) {
