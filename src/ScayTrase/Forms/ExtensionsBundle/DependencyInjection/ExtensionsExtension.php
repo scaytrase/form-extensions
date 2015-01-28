@@ -40,11 +40,9 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
                     $container->prependExtensionConfig(
                         $name,
                         array(
-                            'form' => array(
-                                'resources' => array(
+                            'form_themes' => array(
                                     'ExtensionsBundle:Form:datetime_local.html.twig',
                                     'ExtensionsBundle:Form:entity_autocomplete.html.twig',
-                                )
                             )
                         )
                     );
