@@ -20,9 +20,6 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
-
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
@@ -34,7 +31,7 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend(ContainerBuilder $container)
     {
-        foreach (array_keys($container->getExtensions()) as $name) {
+        foreach ($container->getExtensions() as $key => $name) {
             switch ($name) {
                 case 'twig':
                     $container->prependExtensionConfig(

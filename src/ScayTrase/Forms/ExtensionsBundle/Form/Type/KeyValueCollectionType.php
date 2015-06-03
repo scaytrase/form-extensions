@@ -29,7 +29,7 @@ class KeyValueCollectionType extends AbstractType
 
     public function getParent()
     {
-        return 'bootstrap_collection';
+        return 'collection';
     }
 
     /**
