@@ -20,7 +20,7 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
 
@@ -31,7 +31,7 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend(ContainerBuilder $container)
     {
-        foreach ($container->getExtensions() as $key => $name) {
+        foreach ($container->getExtensions() as $name => $extension) {
             switch ($name) {
                 case 'twig':
                     $container->prependExtensionConfig(
@@ -41,8 +41,8 @@ class ExtensionsExtension extends Extension implements PrependExtensionInterface
                                 'resources' => array(
                                     'ExtensionsBundle:Form:datetime_local.html.twig',
                                     'ExtensionsBundle:Form:entity_autocomplete.html.twig',
-                                )
-                            )
+                                ),
+                            ),
                         )
                     );
                     break;
